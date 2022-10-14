@@ -1,25 +1,25 @@
 import java.time.LocalDateTime;
 
 public class Train extends Transport {
-    private int fare;
-    private int travelTime;
+    private String fare;
+    private Integer travelTime;
     private String departureStation;
     private String terminalStation;
-    private String quanityWagon;
+    private int quanityWagon;
 //----------------------------------------------------------------------------------------
-    public int getFare() {
+    public String getFare() {
         return fare;
     }
 
-    public void setFare(int fare) {
+    public void setFare(String fare) {
         this.fare = fare;
     }
 
-    public int getTravelTime() {
+    public Integer getTravelTime() {
         return travelTime;
     }
 
-    public void setTravelTime(int travelTime) {
+    public void setTravelTime(Integer travelTime) {
         this.travelTime = travelTime;
     }
 
@@ -39,12 +39,11 @@ public class Train extends Transport {
         this.terminalStation = terminalStation;
     }
 
-    public String getQuanityWagon() {
+    public int getQuanityWagon() {
         return quanityWagon;
     }
 
-    public void setQuanityWagon(String quanityWagon) {
-        this.quanityWagon = quanityWagon;
+    public void setQuanityWagon(int quanityWagon) {this.quanityWagon = quanityWagon;
     }
     //------------------------------------------------------------------------------------------
 
@@ -55,17 +54,47 @@ public class Train extends Transport {
                  String country,
                  String color,
                  int maxSpeed,
-                 int fare,
-                 int travelTime,
+                 String fare,
+                 Integer travelTime,
                  String departureStation,
                  String terminalStation,
-                 String quanityWagon)
+                 int quanityWagon)
     {
         super(mark, model, yearOfMade, country, color, maxSpeed);
-        this.fare = fare;
-        this.travelTime = travelTime;
-        this.departureStation = departureStation;
-        this.terminalStation = terminalStation;
-        this.quanityWagon = quanityWagon;
+
+        if (fare==null) {
+            this.fare = "incorrect fare";
+        } else this.fare = fare;
+
+        if (travelTime==null) {
+            this.travelTime = 1;
+        } else this.travelTime = travelTime;
+
+        if (departureStation!=null||departureStation.isBlank()) {
+            this.departureStation = departureStation;
+        } else System.out.println("Station not assigned");
+
+        if (terminalStation!=null||!terminalStation.isEmpty()||!terminalStation.isBlank()) {
+            this.terminalStation = terminalStation;
+        } else System.out.println("Departure station not assigned");
+
+        if (quanityWagon>0) {
+            this.quanityWagon = quanityWagon;
+        } else System.out.println("Quanity Wagon is negativ ");
+
+    }
+
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println(
+                "Fare "+fare+'\n'+
+                        "Travel time "+travelTime+'\n'+
+                        "departure Station "+departureStation+'\n'+
+                        "terminal Station "+terminalStation+'\n'+
+                        "quanity Wagon "+quanityWagon
+
+
+        );
     }
 }

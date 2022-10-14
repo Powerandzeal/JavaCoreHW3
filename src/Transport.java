@@ -60,9 +60,9 @@ public class Transport {
         this.model = model;
         this.yearOfMade = yearOfMade;
         this.country = country;
-        if (color!=null||color.isBlank()||color.isEmpty()) {
-            this.color = color;
-        }
+        if (color==null||color.isBlank()||color.isEmpty()) {
+            System.out.println("Grey");
+        } else this.color = color;
         if (maxSpeed>0) {
             this.maxSpeed = maxSpeed;
         }
@@ -75,7 +75,7 @@ public class Transport {
                         "Year of made "+getYearOfMade()+'\n'+
                         "Made country "+getCountry()+'\n'+
                         "color "+getColor()+'\n'+
-                        "Max speed"+getMaxSpeed()
+                        "Max speed "+getMaxSpeed()
 
 
 
