@@ -1,4 +1,6 @@
-public class Transport {
+package transport;
+
+public abstract class Transport {
     protected String mark;
     protected String model;
     protected final int yearOfMade;
@@ -61,7 +63,7 @@ public class Transport {
         this.yearOfMade = yearOfMade;
         this.country = country;
         if (color==null||color.isBlank()||color.isEmpty()) {
-            System.out.println("Grey");
+            this.color = "Grey";
         } else this.color = color;
         if (maxSpeed>0) {
             this.maxSpeed = maxSpeed;
@@ -69,18 +71,17 @@ public class Transport {
     }
 
     public void printInfo() {
-        System.out.println(
+        System.out.print(
                 "Brand "+ getMark()+'\n'+
                 "Model "+ getModel()+'\n'+
                         "Year of made "+getYearOfMade()+'\n'+
                         "Made country "+getCountry()+'\n'+
                         "color "+getColor()+'\n'+
-                        "Max speed "+getMaxSpeed()
-
-
-
-
-
+                        "Max speed "+getMaxSpeed()+'\n'
         );
+
     }
+
+    public abstract void refiil(Boolean gasoline,Boolean diesel, Boolean electro);
+
 }

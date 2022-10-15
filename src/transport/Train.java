@@ -1,6 +1,9 @@
-import java.time.LocalDateTime;
+package transport;
+
+import transport.Transport;
 
 public class Train extends Transport {
+    private String statusRefill;
     private String fare;
     private Integer travelTime;
     private String departureStation;
@@ -92,9 +95,17 @@ public class Train extends Transport {
                         "Travel time "+travelTime+'\n'+
                         "departure Station "+departureStation+'\n'+
                         "terminal Station "+terminalStation+'\n'+
-                        "quanity Wagon "+quanityWagon
+                        "quanity Wagon "+quanityWagon+'\n'
 
 
         );
+    }
+
+    @Override
+    public void refiil(Boolean gasoline,Boolean diesel, Boolean electro) {
+        if (diesel) {
+            statusRefill = "fill";
+        } else statusRefill = "Not fill";
+
     }
 }
