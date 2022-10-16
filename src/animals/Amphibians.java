@@ -2,20 +2,22 @@ package animals;
 
 public class Amphibians extends Animals {
     private String habitats ;
-
+//------------------------------------------------------------------------------
     public String getHabitats() {
         return habitats;
     }
 
     public void setHabitats(String habitats) {
-        this.habitats = habitats;
+        if (habitats!=null&&!habitats.isEmpty()&&!habitats.isBlank()) {
+            this.habitats = habitats;
+        }
     }
-
+    //------------------------------------------------------------------------------
     public Amphibians(String nickName, int yearsOld, String habitats) {
         super(nickName, yearsOld);
-        this.habitats = habitats;
+        this.setHabitats(habitats);
     }
-
+    //------------------------------------------------------------------------------
     @Override
     public void eat() {
         System.out.println("Amhibians eat");
@@ -30,4 +32,12 @@ public class Amphibians extends Animals {
         System.out.println("Amphibians hunt");
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"Amphibians{"+
+                "habitats='" + habitats + '\'' +
+                '}'+'\n';
+    }
+
 }

@@ -9,7 +9,9 @@ public class Mammals extends Animals {
     }
 
     public void setSpeedMoving(int speedMoving) {
-        this.speedMoving = speedMoving;
+        if (speedMoving>0) {
+            this.speedMoving = speedMoving;
+        }
     }
 
     public String getHabitats() {
@@ -17,13 +19,16 @@ public class Mammals extends Animals {
     }
 
     public void setHabitats(String habitats) {
-        this.habitats = habitats;
+        if (habitats!=null&&!habitats.isEmpty()&&!habitats.isBlank()) {
+            this.habitats = habitats;
+        }
+
     }
 
     public Mammals(String nickName, int yearsOld, int speedMoving, String habitats) {
         super(nickName, yearsOld);
-        this.speedMoving = speedMoving;
-        this.habitats = habitats;
+        this.setSpeedMoving(speedMoving);
+        this.setHabitats(habitats);
     }
 
     @Override
@@ -38,5 +43,13 @@ public class Mammals extends Animals {
 
     public void walk() {
         System.out.println("Mammals walk ");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+'\n'+"Mammals{" +
+                "speedMoving=" + speedMoving +
+                ", habitats='" + habitats + '\'' +
+                '}'+'\n';
     }
 }

@@ -11,10 +11,10 @@ public class Main {
 
 
         Train train1 = new Train("Lastocha","B-901",2011,"Russia",null,
-                301,"3500 rub",null,"Belorussky Railway Station",
+                301,3500,null,"Belorussky Railway Station",
                 "Minsk passangers",11);
         Train train2 = new Train("Leningrad","D-125",2019,"Russia",null,
-                270,"1700",null,"Leningradsy Railway Station",
+                270,1700,null,"Leningradsy Railway Station",
                 "Leningrad passangers",8);
 
         train1.printInfo();
@@ -25,7 +25,7 @@ public class Main {
         Bus bus2 = new Bus("Ford","T5",2007,"USA","Blue",
                 130,"Individual ");
         Bus bus3 = new Bus("Tesla","xxx4",2025,"USA","White",
-                170,"City transport.Bus ");
+                170,"City transportBus ");
 
         bus1.printInfo();
         bus2.printInfo();
@@ -36,18 +36,18 @@ public class Main {
         //ex3---------------------------------------------------------------------------------------------
 
         Herbivores gazele = new Herbivores("gaz",1,45,
-                "savanna","herb");
+                "savanna");
         Herbivores giraffe = new Herbivores("Stick",3,30,
-                "savanna","herb");
+                "savanna");
         Herbivores horse = new Herbivores("Runner",4,65,
-                "wildness","herb");
+                "wildness");
 
         Predator hyena = new Predator("scavenger",5,56,
-                "savanna","Meat");
+                "savanna");
         Predator tiger = new Predator("Murzik",3,70,
-                "savanna","Meat");
+                "savanna");
         Predator bear = new Predator("Mishka",7,70,
-                "wildness","Meat");
+                "wildness");
 
         Amphibians frog = new Amphibians("Crazy frog",6,"Water and earth");
         Amphibians snake = new Amphibians("SnakeFreshWater",5,"Water and earth");
@@ -65,6 +65,21 @@ public class Main {
                 "Fly");
         FlyingBird eagl = new FlyingBird("eagl",8,"wildness",
                 "Fly");
+
+
+        System.out.println(gazele.toString());
+        System.out.println(giraffe.toString());
+        System.out.println(horse.toString());
+        System.out.println(frog.toString());
+        System.out.println(snake.toString());
+        System.out.println(pinguin.toString());
+        System.out.println(peacock.toString());
+        System.out.println(birdDodo.toString());
+        System.out.println(seagull.toString());
+        System.out.println(albatross.toString());
+        System.out.println(eagl.toString());
+        System.out.println(eagl.toString());
+
 
 
 

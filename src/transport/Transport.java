@@ -1,12 +1,12 @@
 package transport;
 
 public abstract class Transport {
-    protected String mark;
-    protected String model;
-    protected final int yearOfMade;
-    protected final String country;
-    protected String color;
-    protected int maxSpeed;
+    private final String mark;
+    private final String model;
+    private final int yearOfMade;
+    private final String country;
+    private String color;
+    private int maxSpeed;
 //-----------------------------------------------------------------------------------
     public String getMark() {
         return mark;
@@ -33,20 +33,16 @@ public abstract class Transport {
     }
     //----------------------------------------------------------------------------------
 
-    public void setMark(String mark) {
-        this.mark = mark;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public void setColor(String color) {
-        this.color = color;
+        if (color==null||color.isBlank()||color.isEmpty()) {
+            this.color = "Grey";
+        } else this.color = color;
     }
 
     public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if (maxSpeed>0) {
+            this.maxSpeed = maxSpeed;
+        }
     }
     //-------------------------------------------------------------------------------------
 
@@ -62,12 +58,9 @@ public abstract class Transport {
         this.model = model;
         this.yearOfMade = yearOfMade;
         this.country = country;
-        if (color==null||color.isBlank()||color.isEmpty()) {
-            this.color = "Grey";
-        } else this.color = color;
-        if (maxSpeed>0) {
-            this.maxSpeed = maxSpeed;
-        }
+        this.setColor(color);
+        this.setMaxSpeed(maxSpeed);
+
     }
 
     public void printInfo() {

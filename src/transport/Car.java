@@ -3,11 +3,44 @@ package transport;
 import transport.Transport;
 
 public class Car extends Transport {
-    private String statusRefill = "";
+    private String statusRefill;
     private  int countOfSit;
     private String transmisson;
     private String typeEngine;
 //--------------------------------------------------------------------------------
+
+    public int getCountOfSit() {
+        return countOfSit;
+    }
+
+    public void setCountOfSit(int countOfSit) {
+        if (countOfSit>=1) {
+            this.countOfSit = countOfSit;
+        }
+    }
+
+    public String getTransmisson() {
+        return transmisson;
+    }
+
+    public void setTransmisson(String transmisson) {
+        if (transmisson!=null&&!transmisson.isEmpty()&&transmisson.isBlank()) {
+            this.transmisson = transmisson;
+        } else transmisson = "information is missing";
+    }
+
+    public String getTypeEngine() {
+        return typeEngine;
+    }
+
+    public void setTypeEngine(String typeEngine) {
+        if (typeEngine!=null&&!typeEngine.isEmpty()&&typeEngine.isBlank()) {
+            this.typeEngine = typeEngine;
+        } else typeEngine = "information is missing";
+    }
+
+
+    //----------------------------------------------------------------------------------
 
     public Car (String mark,
                String model,
@@ -20,9 +53,9 @@ public class Car extends Transport {
                String typeEngine)
     {
         super(mark, model, yearOfMade, country, color, maxSpeed);
-        this.countOfSit = countOfSit;
-        this.transmisson = transmisson;
-        this.typeEngine = typeEngine;
+        this.setCountOfSit(countOfSit);
+        this.setTransmisson(transmisson);
+        this.setTypeEngine(typeEngine);
     }
 //--------------------------------------------------------------------------------
     @Override

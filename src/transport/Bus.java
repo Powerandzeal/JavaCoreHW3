@@ -5,7 +5,18 @@ import transport.Transport;
 public class Bus extends Transport {
     private String statusRefill;
     private String purpose;
+    //------------------------------------------------------------------------------
 
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        if (purpose!=null&&!purpose.isEmpty()) {
+            this.purpose = purpose;
+        } else this.purpose= "universal Type";
+    }
+//----------------------------------------------------------------------------
     public Bus(String mark,
                String model,
                int yearOfMade,
@@ -14,15 +25,11 @@ public class Bus extends Transport {
                int maxSpeed,
                String purpose) {
         super(mark, model, yearOfMade, country, color, maxSpeed);
-
-        if (purpose!=null||!purpose.isBlank()) {
-            this.purpose = purpose;
-        } else this.purpose= "universal Type";
-
+            this.setPurpose(purpose);
     }
+    //-----------------------------------------------------------------------------
     public void printInfo(){
         super.printInfo();
-        System.out.println();
         System.out.println(
                 "Purpose bus"+purpose+'\n'
         );

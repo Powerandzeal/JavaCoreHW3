@@ -41,5 +41,12 @@ public abstract class Animals {
 
     public abstract void go();
 
+    @Override
+    public String toString() {
+        return "Animals{" +
+                "nickName='" + nickName + '\'' +
+                ", yearsOld=" + yearsOld +
+                '}';
+    }
 
 }

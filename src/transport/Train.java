@@ -4,17 +4,18 @@ import transport.Transport;
 
 public class Train extends Transport {
     private String statusRefill;
-    private String fare;
+    private double fare;
     private Integer travelTime;
     private String departureStation;
     private String terminalStation;
     private int quanityWagon;
 //----------------------------------------------------------------------------------------
-    public String getFare() {
+    public double getFare() {
         return fare;
     }
 
-    public void setFare(String fare) {
+    public void setFare(double fare) {
+       if (fare>0)
         this.fare = fare;
     }
 
@@ -23,7 +24,9 @@ public class Train extends Transport {
     }
 
     public void setTravelTime(Integer travelTime) {
-        this.travelTime = travelTime;
+        if (travelTime!=null) {
+            this.travelTime = travelTime;
+        } else this.travelTime = 12;
     }
 
     public String getDepartureStation() {
@@ -31,7 +34,9 @@ public class Train extends Transport {
     }
 
     public void setDepartureStation(String departureStation) {
-        this.departureStation = departureStation;
+        if (departureStation!=null&&!departureStation.isBlank()&&!departureStation.isEmpty()) {
+            this.departureStation = departureStation;
+        } else departureStation = "information is missing";
     }
 
     public String getTerminalStation() {
@@ -39,14 +44,19 @@ public class Train extends Transport {
     }
 
     public void setTerminalStation(String terminalStation) {
-        this.terminalStation = terminalStation;
+        if (terminalStation!=null&&!terminalStation.isEmpty()&&!terminalStation.isBlank()) {
+            this.terminalStation = terminalStation;
+        } else System.out.println("Departure station not assigned");
     }
 
     public int getQuanityWagon() {
         return quanityWagon;
     }
 
-    public void setQuanityWagon(int quanityWagon) {this.quanityWagon = quanityWagon;
+    public void setQuanityWagon(int quanityWagon) {
+        if (quanityWagon>0) {
+            this.quanityWagon = quanityWagon;
+        } else System.out.println("Quanity Wagon is negativ ");
     }
     //------------------------------------------------------------------------------------------
 
@@ -57,7 +67,7 @@ public class Train extends Transport {
                  String country,
                  String color,
                  int maxSpeed,
-                 String fare,
+                 double fare,
                  Integer travelTime,
                  String departureStation,
                  String terminalStation,
@@ -65,26 +75,16 @@ public class Train extends Transport {
     {
         super(mark, model, yearOfMade, country, color, maxSpeed);
 
-        if (fare==null) {
-            this.fare = "incorrect fare";
-        } else this.fare = fare;
+        this.setFare(fare);
 
-        if (travelTime==null) {
-            this.travelTime = 1;
-        } else this.travelTime = travelTime;
+        this.setTravelTime(travelTime);
 
-        if (departureStation!=null||departureStation.isBlank()) {
-            this.departureStation = departureStation;
-        } else System.out.println("Station not assigned");
+        this.setDepartureStation(departureStation);
 
-        if (terminalStation!=null||!terminalStation.isEmpty()||!terminalStation.isBlank()) {
-            this.terminalStation = terminalStation;
-        } else System.out.println("Departure station not assigned");
+        this.setTerminalStation(terminalStation);
 
-        if (quanityWagon>0) {
-            this.quanityWagon = quanityWagon;
-        } else System.out.println("Quanity Wagon is negativ ");
-
+        this.setQuanityWagon(quanityWagon);
+        //------------------------------------------------------------------------
     }
 
     @Override

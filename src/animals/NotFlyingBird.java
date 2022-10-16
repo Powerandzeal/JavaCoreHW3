@@ -8,15 +8,24 @@ public class NotFlyingBird extends Bird {
     }
 
     public void setTypeOfLocomotion(String typeOfLocomotion) {
-        this.typeOfLocomotion = typeOfLocomotion;
+        if (typeOfLocomotion!=null&&!typeOfLocomotion.isBlank()&&!typeOfLocomotion.isEmpty()) {
+            this.typeOfLocomotion = typeOfLocomotion;
+        }
     }
 
     public NotFlyingBird(String nickName, int yearsOld, String habitats, String typeOfLocomotion) {
         super(nickName, yearsOld, habitats);
-        this.typeOfLocomotion = typeOfLocomotion;
+        this.setTypeOfLocomotion(typeOfLocomotion);
     }
 
     public void walk() {
         System.out.println("Bird walk");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+'\n'+"NotFlyingBird{" +
+                "typeOfLocomotion='" + typeOfLocomotion + '\'' +
+                '}'+'\n';
     }
 }
